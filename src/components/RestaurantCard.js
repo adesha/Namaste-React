@@ -3,7 +3,7 @@ import { CDN_URL } from '../utils/constants'
 
 const RestaurantCard=(props)=>{
     const {resData}=props
-    
+    console.log(props)
     return(
         <div className='restaurant-card'>
             <img className='res-logo' alt='res-logo' src={food}/>
