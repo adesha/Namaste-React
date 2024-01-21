@@ -73,13 +73,8 @@ const Body=()=>{
     //             }
     //         }
     // ]
-    if(listOfRestaurants.length === 0){
-        return  (<div>
-            <Shimmer/>
-        </div>)
-    }
 
-    return (
+    return listOfRestaurants.length === 0 ? <Shimmer/> : (
         <div className='body'>
             <div className='filter'>
                 <button className="filter-btn" onClick={()=>{
