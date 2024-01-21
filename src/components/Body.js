@@ -1,5 +1,6 @@
 import RestaurantCard from "./RestaurantCard"
 import { useState,useEffect } from "react"
+import Shimmer from "./Shimmer";
 
 const Body=()=>{
 
@@ -15,7 +16,7 @@ const Body=()=>{
         const json = await data.json()
         console.log(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
 
-        setListOfRestaurants(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
+        setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
     //normal ks variable
@@ -72,6 +73,12 @@ const Body=()=>{
     //             }
     //         }
     // ]
+    if(listOfRestaurants.length === 0){
+        return  (<div>
+            <Shimmer/>
+        </div>)
+    }
+
     return (
         <div className='body'>
             <div className='filter'>
