@@ -41,6 +41,14 @@ class About extends React.Component{
         })
     }
     
+    componentDidUpdate(){
+        console.log('updated')
+    }
+
+    componentWillUnmount(){
+        console.log('Unmount')
+    }
+
     // to use we have to use this keyword e.g this.props.name, this.state.count
     render(){
 
