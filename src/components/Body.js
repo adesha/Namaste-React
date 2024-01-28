@@ -25,7 +25,7 @@ const Body=()=>{
     }
 
     const onlineStatus=useOnlineStatus()
-    console.log('status'+ onlineStatus)
+    //console.log('status'+ onlineStatus)
     if(onlineStatus===false){
         return(
         <h1>Looks like you lost INTERNET!!!!</h1>
@@ -88,19 +88,25 @@ const Body=()=>{
 
     return listOfRestaurants.length === 0 ? <Shimmer/> : (
         <div className='body'>
-            <div className='filter'>
-                <div className="search">
-                    <input type="text" className="search-box" 
+            <div className='filter flex'>
+                <div className="search m-4 p-4">
+                    <input type="text" 
+                    className="search-box border border-solid border-black" 
                     value={searchText} 
                     onChange={(e)=>{setSearchText(e.target.value)}}/>
-                    <button onClick={()=>{
+                    <button
+                    className="px-4 py-2 bg-green-100 m-4 rounded-lg"
+                     onClick={()=>{
                         const filteredRestaurant = listOfRestaurants.filter(
                             (res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase())
                         )
                         setFilteredListOfRestaurants(filteredRestaurant)
                     }}>Search</button>
                 </div>
-                <button className="filter-btn" onClick={()=>{
+                <div className="search m-4 p-4">
+                    <button 
+                    className="filter-btn px-4 py-2 bg-gray-100 m-4 rounded-lg" 
+                    onClick={()=>{
                     const filterRestaurants=listOfRestaurants.filter(
                     (res)=>res.info.avgRating > 4
                 )
@@ -109,7 +115,8 @@ const Body=()=>{
                 Top Rated Restaurants
                 </button>
                 </div>
-            <div className='restaurant-container'>
+                </div>
+            <div className='restaurant-container flex flex-wrap'>
                 {/* {
                     resList.map((res)=><RestaurantCard key={res.info.id} resData={res}/>)
                 } */}
