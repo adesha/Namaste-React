@@ -7,16 +7,21 @@ import About from './components/About';
 import Contact from './components/Contact'
 import Error from './components/Error'
 import RestaurantMenu from './components/RestaurantMenu';
+import UserContext from './utils/UserContext';
 //import Grocery from './components/Grocery';
 
 const Grocery = lazy(()=>import('./components/Grocery'))
 
 const AppLayout = ()=>{
     return(
-    <div className='app'>
-        <Header/>
-        <Outlet/>
-    </div>)
+        <UserContext.Provider value={{loggedInUser:'Adesha'}}>
+            <div className='app'>
+               <UserContext.Provider value={{loggedInUser:'Swiggy'}}>
+                    <Header/>
+               </UserContext.Provider>
+                <Outlet/>
+            </div>
+    </UserContext.Provider>)
 }
 
 const appRouter=createBrowserRouter([

@@ -11,6 +11,7 @@
 
 import React from "react"
 import { json } from "react-router-dom"
+import UserContext from "../utils/UserContext"
 
 class About extends React.Component{
 
@@ -57,6 +58,14 @@ class About extends React.Component{
             <div>
                 <h1>About us</h1>
                 <h3>Hello</h3>
+                <div>
+                    LoggedIn User
+                    <UserContext.Consumer>
+                        {({loggedInUser})=>
+                        (<h1 className="text-xl font-bold">{loggedInUser}</h1>)
+                        }
+                    </UserContext.Consumer>
+                </div>
                 {/* <h3>Count - {this.state.count}</h3>
                 <button onClick={()=>{
                     this.setState({

@@ -15,7 +15,7 @@ const RestaurantMenu = ()=>{
     //console.log(itemCards)
 
     const category=resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c=>c.card?.card?.["@type"]=="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
-    console.log(category)
+    //console.log(category)
 
     return resInfo===null ? <Shimmer/> : 
     (
